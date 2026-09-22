@@ -7,10 +7,10 @@ on:
         description: "Select Device Tree repository"
         required: true
         type: choice
-        default: https://github.com/AzzyC/ofox_device_xiaomi_peridot
+        default: https://gitlab.com/xiaomi-chenfeng/device_xiaomi_chenfeng-OFRP
         options:
-          - https://github.com/AzzyC/ofox_device_xiaomi_peridot
-          - https://gitlab.com/OrangeFox/device/peridot_new
+          - https://github.com/marcmyworld/device_xiaomi_chenfeng-OFRP
+          - https://gitlab.com/xiaomi-chenfeng/device_xiaomi_chenfeng-OFRP
 
       device_tree_branch:
         description: "Select Device Tree branch"
@@ -19,13 +19,12 @@ on:
         type: choice
         options:
           - fox_14.1
-          - auto-dfe
 
       notification_mode:
         description: "Select Telegram notification mode"
         required: true
         type: choice
-        default: quiet
+        default: loud
         options:
           - quiet
           - loud
@@ -42,12 +41,12 @@ jobs:
       MANIFEST_BRANCH: 14.1
       DEVICE_TREE_URL: ${{ inputs.device_tree_url }}
       DEVICE_TREE_BRANCH: ${{ inputs.device_tree_branch }}
-      DEVICE_PATH: device/xiaomi/peridot
-      DEVICE_NAME: peridot
-      MAKEFILE_NAME: twrp_peridot-ap2a-eng
+      DEVICE_PATH: device/xiaomi/chenfeng
+      DEVICE_NAME: chenfeng
+      MAKEFILE_NAME: twrp_chenfeng-ap2a-userdebug
       BUILD_TARGET: recovery
-      TELEGRAM_CHAT_ID: ${{ inputs.notification_mode == 'quiet' && '-1002917930475' || '-1001480977582' }}
-      TZ: Europe/London
+      TELEGRAM_CHAT_ID: ${{ inputs.notification_mode == 'quiet' && '6266082669' || '-1004434097494' }}
+      TZ: Asia/Kolkata
 
     steps:
 
